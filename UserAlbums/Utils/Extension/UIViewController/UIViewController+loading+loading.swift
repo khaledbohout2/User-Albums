@@ -5,7 +5,9 @@
 //  Created by Khaled Bohout on 23/04/2022.
 //
 
+import UIKit
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 extension UIViewController: NVActivityIndicatorViewable {
 

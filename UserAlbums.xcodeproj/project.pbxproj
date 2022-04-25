@@ -45,6 +45,10 @@
 		068BFF1E2815699600569987 /* AlbumDetailsVC+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068BFF1D2815699600569987 /* AlbumDetailsVC+CollectionViewDelegate.swift */; };
 		068BFF21281569E900569987 /* AlbumDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068BFF20281569E900569987 /* AlbumDetailsViewModel.swift */; };
 		068BFF2328156BAB00569987 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068BFF2228156BAB00569987 /* ImageCell.swift */; };
+		069236002817322500017CE4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 069235FF2817322500017CE4 /* Alamofire */; };
+		06923608281733C000017CE4 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 06923607281733C000017CE4 /* NVActivityIndicatorView */; };
+		0692360A281733C000017CE4 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 06923609281733C000017CE4 /* NVActivityIndicatorViewExtended */; };
+		0692360D2817343500017CE4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0692360C2817343500017CE4 /* SDWebImage */; };
 		069D0DB928134D6900E36C1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D0DB828134D6900E36C1E /* AppDelegate.swift */; };
 		069D0DBB28134D6900E36C1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D0DBA28134D6900E36C1E /* SceneDelegate.swift */; };
 		069D0DC228134D6C00E36C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069D0DC128134D6C00E36C1E /* Assets.xcassets */; };
@@ -133,6 +137,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0692360A281733C000017CE4 /* NVActivityIndicatorViewExtended in Frameworks */,
+				06923608281733C000017CE4 /* NVActivityIndicatorView in Frameworks */,
+				0692360D2817343500017CE4 /* SDWebImage in Frameworks */,
+				069236002817322500017CE4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +500,12 @@
 			dependencies = (
 			);
 			name = UserAlbums;
+			packageProductDependencies = (
+				069235FF2817322500017CE4 /* Alamofire */,
+				06923607281733C000017CE4 /* NVActivityIndicatorView */,
+				06923609281733C000017CE4 /* NVActivityIndicatorViewExtended */,
+				0692360C2817343500017CE4 /* SDWebImage */,
+			);
 			productName = UserAlbums;
 			productReference = 069D0DB528134D6900E36C1E /* UserAlbums.app */;
 			productType = "com.apple.product-type.application";
@@ -520,6 +534,11 @@
 				Base,
 			);
 			mainGroup = 069D0DAC28134D6900E36C1E;
+			packageReferences = (
+				069235FE2817322500017CE4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				06923606281733C000017CE4 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				0692360B2817343500017CE4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 069D0DB628134D6900E36C1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -808,6 +827,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		069235FE2817322500017CE4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		06923606281733C000017CE4 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0692360B2817343500017CE4 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		069235FF2817322500017CE4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 069235FE2817322500017CE4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		06923607281733C000017CE4 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06923606281733C000017CE4 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		06923609281733C000017CE4 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06923606281733C000017CE4 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+		0692360C2817343500017CE4 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0692360B2817343500017CE4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 069D0DAD28134D6900E36C1E /* Project object */;
 }
