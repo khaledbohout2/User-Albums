@@ -30,10 +30,9 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
         bindViewModel()
         bindViewToViewModel()
     }
-
-    private func bindViewModel() {
-
-        let stateValueHandler: (AlbumDetailsViewModelState) -> Void = { [weak self] state in
+    
+    func stateValueHandler() -> (AlbumDetailsViewModelState) -> Void {
+        return { [weak self] state in
             switch state {
             case .loading:
                 self?.startLoading()
@@ -44,6 +43,11 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
                 self?.showSelfDismissingAlert(error.localizedDescription)
             }
         }
+    }
+
+    private func bindViewModel() {
+        
+        let stateValueHandler = stateValueHandler()
 
         viewModel.$state
             .receive(on: RunLoop.main)

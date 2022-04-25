@@ -29,10 +29,9 @@ class ProfileVC: BaseVC<ProfileView> {
         mainView.setDelegates(self)
         bindViewModel()
     }
-
-    private func bindViewModel() {
-
-        let stateValueHandler: (ProfileViewModelState) -> Void = { [weak self] state in
+    
+    func stateValueHandler() -> (ProfileViewModelState) -> Void {
+        return { [weak self] state in
             switch state {
             case .loading:
                 self?.startLoading()
@@ -43,6 +42,11 @@ class ProfileVC: BaseVC<ProfileView> {
                 self?.showSelfDismissingAlert(error.localizedDescription)
             }
         }
+    }
+
+    private func bindViewModel() {
+
+        let stateValueHandler = stateValueHandler()
 
         viewModel.$state
             .receive(on: RunLoop.main)
