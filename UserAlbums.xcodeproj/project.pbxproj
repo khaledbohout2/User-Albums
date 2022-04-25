@@ -33,7 +33,6 @@
 		064252F228136FE4007AD393 /* UIview+fillSuperviewSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064252F128136FE4007AD393 /* UIview+fillSuperviewSafeArea.swift */; };
 		064252F428137007007AD393 /* UIview+centerInSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064252F328137007007AD393 /* UIview+centerInSuperview.swift */; };
 		064F6CDF2814B77F0096D164 /* UIViewController+toNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F6CDE2814B77F0096D164 /* UIViewController+toNavigation.swift */; };
-		06519D88281720CA00CB7119 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06519D87281720CA00CB7119 /* BaseCoordinator.swift */; };
 		067EF57C28164A3D00E50AEC /* UItextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067EF57B28164A3D00E50AEC /* UItextField+Padding.swift */; };
 		067EF581281654AD00E50AEC /* ImagePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067EF580281654AD00E50AEC /* ImagePreviewView.swift */; };
 		067EF583281654B800E50AEC /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067EF582281654B800E50AEC /* ImagePreviewVC.swift */; };
@@ -97,7 +96,6 @@
 		064252F128136FE4007AD393 /* UIview+fillSuperviewSafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+fillSuperviewSafeArea.swift"; sourceTree = "<group>"; };
 		064252F328137007007AD393 /* UIview+centerInSuperview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+centerInSuperview.swift"; sourceTree = "<group>"; };
 		064F6CDE2814B77F0096D164 /* UIViewController+toNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+toNavigation.swift"; sourceTree = "<group>"; };
-		06519D87281720CA00CB7119 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		067EF57B28164A3D00E50AEC /* UItextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItextField+Padding.swift"; sourceTree = "<group>"; };
 		067EF580281654AD00E50AEC /* ImagePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewView.swift; sourceTree = "<group>"; };
 		067EF582281654B800E50AEC /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 				064252BE281362B4007AD393 /* BaseView.swift */,
 				064252BD281362B4007AD393 /* BaseVC+CollectionView.swift */,
 				064252BF281362B4007AD393 /* BaseVC+TableView.swift */,
-				06519D87281720CA00CB7119 /* BaseCoordinator.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -575,7 +572,6 @@
 				063573162816174100AE45F8 /* AlbumNetworkRouter.swift in Sources */,
 				0635731128160E2B00AE45F8 /* AlbumRepository.swift in Sources */,
 				068BFF1E2815699600569987 /* AlbumDetailsVC+CollectionViewDelegate.swift in Sources */,
-				06519D88281720CA00CB7119 /* BaseCoordinator.swift in Sources */,
 				064252D628136827007AD393 /* AlbumCell.swift in Sources */,
 				06F6A21D281381F200C0360C /* Album.swift in Sources */,
 				064252DC28136B15007AD393 /* UIColor+CustomColors.swift in Sources */,
