@@ -39,7 +39,6 @@ class Network: RequestInterceptor {
                 guard let data = response.data else {
                     return promise(.failure(NSError.create(description: "Server Error")))
                 }
-
                 do {
                     let data =  try JSONDecoder().decode(type, from: data)
                     promise(.success(data))

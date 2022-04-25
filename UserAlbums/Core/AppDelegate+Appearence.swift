@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension AppDelegate {
+extension SceneDelegate {
     func setAppearance() {
         setNavigationAppearance()
         setImageViewAppearance()
