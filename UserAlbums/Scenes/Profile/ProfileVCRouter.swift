@@ -14,10 +14,12 @@ class ProfileVCRouter {
         let albumRepository = AlbumRepository(network: Network())
         let viewModel = ProfileViewModel(profileRepository: profileRepository,
                                          albumRepository: albumRepository)
-        return ProfileVC(viewModel: viewModel)
+        let router = ProfileVCRouter()
+        return ProfileVC(viewModel: viewModel, router: router)
     }
     
-    func navigateToAlbum(albumID: String) {
-        
+    func navigateToAlbum(from view: ProfileVC, albumID: Int) {
+        let destinationVC = AlbumDetailsVCRouter.create(albumId: albumID)
+        view.navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

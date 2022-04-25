@@ -37,13 +37,19 @@ final class AlbumDetailsViewModel: ObservableObject {
         state = .loading
         repository.getPhotos(albumId: albumId) { [weak self] result in
             guard let self = self else {return}
-            result.sink { error in
-                self.state = .error(.usersFetch)
-            } receiveValue: { images in
+            result.sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.state = .finishedLoading
+                    break
+                case .failure(_):
+                    self.state = .error(.usersFetch)
+                }
+            }, receiveValue: { images in
                 self.state = .finishedLoading
                 self.images = images
                 self.filteredImages = images
-            }.store(in: &self.cancellables)
+            }).store(in: &self.cancellables)
         }
     }
 

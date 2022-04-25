@@ -10,10 +10,12 @@ import UIKit
 
 class ProfileVC: BaseVC<ProfileView> {
     var viewModel: ProfileViewModel
+    var router: ProfileVCRouter
     private var cancellables: Set<AnyCancellable> = []
     
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModel, router: ProfileVCRouter) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
         tabBarItem.title = "Account"
     }

@@ -10,10 +10,12 @@ import UIKit
 
 class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
     var viewModel: AlbumDetailsViewModel
+    var router: AlbumDetailsVCRouter
     private var cancellables: Set<AnyCancellable> = []
 
-    init(viewModel: AlbumDetailsViewModel) {
+    init(viewModel: AlbumDetailsViewModel, router: AlbumDetailsVCRouter) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
         title = "Album Details"
     }

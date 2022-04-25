@@ -38,13 +38,19 @@ final class ProfileViewModel: ObservableObject {
         state = .loading
         profileRepository.getProfile() { [weak self] result in
             guard let self = self else {return}
-            result.sink { error in
-                self.state = .error(.usersFetch)
-            } receiveValue: { users in
+            result.sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.state = .finishedLoading
+                    break
+                case .failure(_):
+                    self.state = .error(.usersFetch)
+                }
+            }, receiveValue: { users in
                 self.state = .finishedLoading
                 self.user = users.randomElement()
                 self.getAlbums()
-            }.store(in: &self.cancellables)
+            }).store(in: &self.cancellables)
         }
     }
     
@@ -53,13 +59,21 @@ final class ProfileViewModel: ObservableObject {
         state = .loading
         albumRepository.getAlbums(userId: id) { [weak self] result in
             guard let self = self else {return}
-            result.sink { error in
-                self.state = .error(.usersFetch)
-            } receiveValue: { albums in
+            result.sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.state = .finishedLoading
+                    break
+                case .failure(_):
+                    self.state = .error(.usersFetch)
+                }
+            }, receiveValue: { albums in
                 self.state = .finishedLoading
                 self.userAlbums = albums
-            }.store(in: &self.cancellables)
+            }).store(in: &self.cancellables)
         }
     }
 
 }
+
+

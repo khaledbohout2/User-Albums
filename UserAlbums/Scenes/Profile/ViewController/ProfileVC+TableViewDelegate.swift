@@ -20,9 +20,6 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let albumId = viewModel.userAlbums[indexPath.row].id else {return}
-        let repository = AlbumRepository(network: Network())
-        let viewModel = AlbumDetailsViewModel(repository: repository, albumId: albumId)
-        let destinationVC = AlbumDetailsVC(viewModel: viewModel)
-        navigationController?.pushViewController(destinationVC, animated: true)
+        router.navigateToAlbum(from: self, albumID: albumId)
     }
 }
