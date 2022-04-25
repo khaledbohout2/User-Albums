@@ -14,7 +14,7 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: AlbumCell = tableView.forceDequeueCell(identifier: AlbumCell.identifier)
-        cell.configureCell(title: viewModel.userAlbums[indexPath.row].title ?? "")
+        cell.configureCell(title: viewModel.userAlbums[indexPath.row])
         return cell
     }
 
