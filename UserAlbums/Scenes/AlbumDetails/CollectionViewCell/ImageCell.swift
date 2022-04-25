@@ -27,7 +27,7 @@ class ImageCell: UICollectionViewCell {
         image.fillSuperview()
     }
 
-    func configure(image: String) {
-        self.image.load(with: image)
+    func configure(image: Image) {
+        self.image.load(with: image.thumbnailURL ?? "")
     }
 }

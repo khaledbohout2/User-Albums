@@ -20,7 +20,7 @@ extension AlbumDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             identifier: ImageCell.identifier,
             for: indexPath
         )
-        cell.configure(image: viewModel.filteredImages[indexPath.row].thumbnailURL ?? "")
+        cell.configure(image: viewModel.filteredImages[indexPath.row])
         return cell
     }
     

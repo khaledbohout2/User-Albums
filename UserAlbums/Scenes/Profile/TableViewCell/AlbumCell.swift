@@ -33,8 +33,8 @@ class AlbumCell: UITableViewCell {
                         .trailing(contentView.trailingAnchor, constant: 20))
     }
 
-    func configureCell(title: String) {
-        titleLbl.text = title
+    func configureCell(album: Album) {
+        titleLbl.text = album.title ?? ""
     }
 
 }

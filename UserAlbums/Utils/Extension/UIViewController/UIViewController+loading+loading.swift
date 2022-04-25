@@ -7,7 +7,6 @@
 
 import UIKit
 import NVActivityIndicatorView
-import NVActivityIndicatorViewExtended
 
 extension UIViewController: NVActivityIndicatorViewable {
 
