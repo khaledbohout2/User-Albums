@@ -1,5 +1,5 @@
 //
-//  AppDelegate+Appearence.swift
+//  SceneDelegate+Appearence.swift
 //  UserAlbums
 //
 //  Created by Khaled Bohout on 22/04/2022.

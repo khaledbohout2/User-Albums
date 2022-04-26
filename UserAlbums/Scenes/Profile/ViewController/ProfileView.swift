@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileView: BaseView {
-    
+
     lazy var nameLbl: UILabel = {
         let label = UILabel()
         return label
@@ -47,8 +47,8 @@ class ProfileView: BaseView {
 
         addSubview(addressLbl)
         addressLbl.anchor(.top(nameLbl.bottomAnchor, constant: 12),
-                       .leading(leadingAnchor, constant: 20),
-                       .trailing(trailingAnchor, constant: 20))
+                          .leading(leadingAnchor, constant: 20),
+                          .trailing(trailingAnchor, constant: 20))
 
         addSubview(tableView)
         tableView.anchor(.top(addressLbl.bottomAnchor, constant: 20),

@@ -17,7 +17,7 @@ class ProfileVCRouter {
         let router = ProfileVCRouter()
         return ProfileVC(viewModel: viewModel, router: router)
     }
-    
+
     func navigateToAlbum(from view: ProfileVC, albumID: Int, title: String) {
         let destinationVC = AlbumDetailsVCRouter.create(albumId: albumID, title: title)
         view.navigationController?.pushViewController(destinationVC, animated: true)

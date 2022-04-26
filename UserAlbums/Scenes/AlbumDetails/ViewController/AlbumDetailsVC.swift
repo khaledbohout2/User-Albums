@@ -30,7 +30,7 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
         bindViewModel()
         bindViewToViewModel()
     }
-    
+
     func stateValueHandler() -> (AlbumDetailsViewModelState) -> Void {
         return { [weak self] state in
             switch state {
@@ -61,7 +61,7 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
             }
             .store(in: &cancellables)
     }
-    
+
     func bindViewToViewModel() {
         mainView.searchTexrField.textPublisher
             .debounce(for: 0.5, scheduler: DispatchQueue.main)

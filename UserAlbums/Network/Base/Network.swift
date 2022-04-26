@@ -45,7 +45,7 @@ extension Network: NetworkProtocol {
                         debugPrint("=======DEBUG=NETWORK=============Request RESPONSE")
                         debugPrint(response)
                     }
-                    switch response.result{
+                    switch response.result {
                     case .failure(let error):
                         promise(.failure(error))
                         break

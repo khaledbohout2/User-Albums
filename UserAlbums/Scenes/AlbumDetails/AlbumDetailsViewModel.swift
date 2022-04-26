@@ -15,7 +15,7 @@ enum AlbumDetailsViewModelState: Equatable {
 }
 
 enum AlbumDetailsViewModelError: Error, Equatable {
-    case usersFetch
+    case imagesFetch
 }
 
 final class AlbumDetailsViewModel: ObservableObject {
@@ -42,7 +42,7 @@ final class AlbumDetailsViewModel: ObservableObject {
                     self?.state = .finishedLoading
                     break
                 case .failure(_):
-                    self?.state = .error(.usersFetch)
+                    self?.state = .error(.imagesFetch)
                 }
             }, receiveValue: { [weak self] images in
                 self?.state = .finishedLoading
