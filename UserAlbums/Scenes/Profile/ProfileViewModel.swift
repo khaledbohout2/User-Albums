@@ -36,42 +36,38 @@ final class ProfileViewModel: ObservableObject {
 
     func getProfile() {
         state = .loading
-        profileRepository.getProfile() { [weak self] result in
-            guard let self = self else {return}
-            result.sink(receiveCompletion: { completion in
+        profileRepository.getProfile()
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self.state = .finishedLoading
+                    self?.state = .finishedLoading
                     break
                 case .failure(_):
-                    self.state = .error(.usersFetch)
+                    self?.state = .error(.usersFetch)
                 }
             }, receiveValue: { users in
                 self.state = .finishedLoading
                 self.user = users.randomElement()
                 self.getAlbums()
             }).store(in: &self.cancellables)
-        }
     }
-    
+
     func getAlbums() {
         guard let id = user?.id else {return}
         state = .loading
-        albumRepository.getAlbums(userId: id) { [weak self] result in
-            guard let self = self else {return}
-            result.sink(receiveCompletion: { completion in
+        albumRepository.getAlbums(userId: id)
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self.state = .finishedLoading
+                    self?.state = .finishedLoading
                     break
                 case .failure(_):
-                    self.state = .error(.usersFetch)
+                    self?.state = .error(.usersFetch)
                 }
-            }, receiveValue: { albums in
-                self.state = .finishedLoading
-                self.userAlbums = albums
+            }, receiveValue: { [weak self] albums in
+                self?.state = .finishedLoading
+                self?.userAlbums = albums
             }).store(in: &self.cancellables)
-        }
     }
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProfileRepositoryDelegate: AnyObject {
-    func getProfile(completionHandler: @escaping(AFResult<[User]>) -> Void)
+    func getProfile() -> AFResult<[User]>
 }
 
 class ProfileRepository: ProfileRepositoryDelegate {
@@ -18,9 +18,10 @@ class ProfileRepository: ProfileRepositoryDelegate {
         self.network = network
     }
 
-    func getProfile(completionHandler: @escaping(AFResult<[User]>) -> Void) {
+    func getProfile() -> AFResult<[User]> {
         let route = ProfileNetworkRouter.getProfiles
-        network.request(route, decodeTo: [User].self, completionHandler: completionHandler)
+        return network.request(route)
+        
     }
 
 }

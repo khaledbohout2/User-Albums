@@ -35,22 +35,20 @@ final class AlbumDetailsViewModel: ObservableObject {
 
     func getPhotos() {
         state = .loading
-        repository.getPhotos(albumId: albumId) { [weak self] result in
-            guard let self = self else {return}
-            result.sink(receiveCompletion: { completion in
+        repository.getPhotos(albumId: albumId)
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    self.state = .finishedLoading
+                    self?.state = .finishedLoading
                     break
                 case .failure(_):
-                    self.state = .error(.usersFetch)
+                    self?.state = .error(.usersFetch)
                 }
-            }, receiveValue: { images in
-                self.state = .finishedLoading
-                self.images = images
-                self.filteredImages = images
+            }, receiveValue: { [weak self] images in
+                self?.state = .finishedLoading
+                self?.images = images
+                self?.filteredImages = images
             }).store(in: &self.cancellables)
-        }
     }
 
     func search(query: String?) {

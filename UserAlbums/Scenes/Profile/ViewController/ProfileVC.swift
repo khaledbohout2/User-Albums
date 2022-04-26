@@ -17,7 +17,7 @@ class ProfileVC: BaseVC<ProfileView> {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
-        tabBarItem.title = "Account"
+        title = "Account"
     }
 
     required init?(coder: NSCoder) {

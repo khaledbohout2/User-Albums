@@ -8,8 +8,8 @@
 import Foundation
 
 protocol AlbumRepositoryDelegate: AnyObject {
-    func getAlbums(userId: Int, completionHandler: @escaping(AFResult<[Album]>) -> Void)
-    func getPhotos(albumId: Int, completionHandler: @escaping(AFResult<[Image]>) -> Void)
+    func getAlbums(userId: Int) -> AFResult<[Album]>
+    func getPhotos(albumId: Int) -> AFResult<[Image]>
 }
 
 class AlbumRepository: AlbumRepositoryDelegate {
@@ -19,14 +19,14 @@ class AlbumRepository: AlbumRepositoryDelegate {
         self.network = network
     }
 
-    func getAlbums(userId: Int, completionHandler: @escaping(AFResult<[Album]>) -> Void) {
+    func getAlbums(userId: Int) -> AFResult<[Album]> {
         let route = AlbumNetworkRouter.getAlbums(userId: userId)
-        network.request(route, decodeTo: [Album].self, completionHandler: completionHandler)
+        return network.request(route)
     }
-    
-    func getPhotos(albumId: Int, completionHandler: @escaping(AFResult<[Image]>) -> Void) {
+
+    func getPhotos(albumId: Int) -> AFResult<[Image]> {
         let route = AlbumNetworkRouter.getPhotos(albumId: albumId)
-        network.request(route, decodeTo: [Image].self, completionHandler: completionHandler)
+        return network.request(route)
     }
 
 }
