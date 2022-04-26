@@ -9,11 +9,11 @@ import UIKit
 
 class AlbumDetailsVCRouter {
 
-    class func create(albumId: Int) -> UIViewController {
+    class func create(albumId: Int, title: String) -> UIViewController {
         let repository = AlbumRepository(network: Network())
         let viewModel = AlbumDetailsViewModel(repository: repository, albumId: albumId)
         let router = AlbumDetailsVCRouter()
-        let albumDetailsVC = AlbumDetailsVC(viewModel: viewModel, router: router)
+        let albumDetailsVC = AlbumDetailsVC(viewModel: viewModel, router: router, title: title)
         return albumDetailsVC
     }
 

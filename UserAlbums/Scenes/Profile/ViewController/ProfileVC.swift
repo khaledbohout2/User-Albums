@@ -17,7 +17,7 @@ class ProfileVC: BaseVC<ProfileView> {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
-        title = "Account"
+        setLeftNavTitle("Profile")
     }
 
     required init?(coder: NSCoder) {

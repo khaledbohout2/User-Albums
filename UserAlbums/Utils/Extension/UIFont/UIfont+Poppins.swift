@@ -12,6 +12,7 @@ extension UIFont {
     public enum PoppinsType: String {
         case regular = "-Regular"
         case semiBold = "-SemiBold"
+        case bold = "-Bold"
     }
 
     static func poppins(_ type: PoppinsType = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {

@@ -13,11 +13,11 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
     var router: AlbumDetailsVCRouter
     private var cancellables: Set<AnyCancellable> = []
 
-    init(viewModel: AlbumDetailsViewModel, router: AlbumDetailsVCRouter) {
+    init(viewModel: AlbumDetailsViewModel, router: AlbumDetailsVCRouter, title: String) {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
-        title = "Album Details"
+        setCenterNavTitle(title)
     }
 
     required init?(coder: NSCoder) {
