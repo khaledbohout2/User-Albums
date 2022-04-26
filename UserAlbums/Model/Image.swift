@@ -9,11 +9,24 @@ import Foundation
 
 // MARK: - Image
 struct Image: Codable {
-    let title: String?
-    let url, thumbnailURL: String?
+    private let title: String?
+    private let thumbnailURL: String?
+    private let url: String?
 
     enum CodingKeys: String, CodingKey {
         case url, title
         case thumbnailURL = "thumbnailUrl"
+    }
+    
+    func getURL() -> String? {
+        return url
+    }
+    
+    func getThumbnailURL() -> String? {
+        return thumbnailURL
+    }
+    
+    func getTitle() -> String? {
+        return title
     }
 }

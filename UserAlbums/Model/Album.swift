@@ -9,6 +9,14 @@ import Foundation
 
 // MARK: - Album
 struct Album: Codable {
-    let id: Int?
-    let title: String?
+    private let id: Int?
+    private let title: String?
+    
+    func getId() -> Int? {
+        return id
+    }
+    
+    func getTitle() -> String? {
+        return title
+    }
 }

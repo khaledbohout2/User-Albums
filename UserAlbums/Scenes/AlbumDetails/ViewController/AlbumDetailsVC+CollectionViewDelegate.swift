@@ -25,7 +25,7 @@ extension AlbumDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = viewModel.images[indexPath.row].url else {return}
+        guard let url = viewModel.images[indexPath.row].getURL() else {return}
         router.navigateToImagePreview(from: self, image: url)
     }
 }

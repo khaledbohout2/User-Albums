@@ -34,7 +34,7 @@ class AlbumCell: UITableViewCell {
     }
 
     func configureCell(album: Album) {
-        titleLbl.text = album.title ?? ""
+        titleLbl.text = album.getTitle() ?? ""
     }
 
 }

@@ -59,7 +59,7 @@ final class AlbumDetailsViewModel: ObservableObject {
         if query.count == 0 {
             filteredImages = images
         } else if query.count > 0 {
-            filteredImages = images.filter { $0.title?.contains(query) ?? false }
+            filteredImages = images.filter { $0.getTitle()?.contains(query) ?? false }
         }
     }
 

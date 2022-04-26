@@ -28,6 +28,6 @@ class ImageCell: UICollectionViewCell {
     }
 
     func configure(image: Image) {
-        self.image.load(with: image.thumbnailURL ?? "")
+        self.image.load(with: image.getThumbnailURL() ?? "")
     }
 }

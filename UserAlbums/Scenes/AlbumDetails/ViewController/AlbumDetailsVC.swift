@@ -50,12 +50,12 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
         let stateValueHandler = stateValueHandler()
 
         viewModel.$state
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: stateValueHandler)
             .store(in: &cancellables)
 
         viewModel.$filteredImages
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { albums in
                 self.mainView.collectionView.reloadData()
             }
@@ -64,7 +64,7 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
     
     func bindViewToViewModel() {
         mainView.searchTexrField.textPublisher
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
             .removeDuplicates()
             .sink { [weak viewModel] in
                 viewModel?.search(query: $0)

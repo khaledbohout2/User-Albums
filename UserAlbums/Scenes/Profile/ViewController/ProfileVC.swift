@@ -49,12 +49,12 @@ class ProfileVC: BaseVC<ProfileView> {
         let stateValueHandler = stateValueHandler()
 
         viewModel.$state
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: stateValueHandler)
             .store(in: &cancellables)
 
         viewModel.$user
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { user in
                 self.mainView.nameLbl.text = user?.name
                 self.mainView.addressLbl.text = user?.address?.formatAddress()
@@ -62,7 +62,7 @@ class ProfileVC: BaseVC<ProfileView> {
             .store(in: &cancellables)
 
         viewModel.$userAlbums
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { albums in
                 self.mainView.tableView.reloadData()
             }

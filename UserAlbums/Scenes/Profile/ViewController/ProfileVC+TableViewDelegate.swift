@@ -19,7 +19,7 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let albumId = viewModel.userAlbums[indexPath.row].id else {return}
-        router.navigateToAlbum(from: self, albumID: albumId, title: viewModel.userAlbums[indexPath.row].title ?? "")
+        guard let albumId = viewModel.userAlbums[indexPath.row].getId() else {return}
+        router.navigateToAlbum(from: self, albumID: albumId, title: viewModel.userAlbums[indexPath.row].getTitle() ?? "")
     }
 }
