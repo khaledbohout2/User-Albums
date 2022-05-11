@@ -46,9 +46,9 @@ final class ProfileViewModel: ObservableObject {
                     self?.state = .error(.usersFetch)
                 }
             }, receiveValue: { [weak self]  users in
-                self.state = .finishedLoading
-                self.user = users.randomElement()
-                self.getAlbums()
+                self?.state = .finishedLoading
+                self?.user = users.randomElement()
+                self?.getAlbums()
             }).store(in: &self.cancellables)
     }
 
