@@ -45,7 +45,7 @@ final class ProfileViewModel: ObservableObject {
                 case .failure(_):
                     self?.state = .error(.usersFetch)
                 }
-            }, receiveValue: { users in
+            }, receiveValue: { [weak self]  users in
                 self.state = .finishedLoading
                 self.user = users.randomElement()
                 self.getAlbums()

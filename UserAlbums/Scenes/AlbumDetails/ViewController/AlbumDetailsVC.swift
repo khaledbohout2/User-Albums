@@ -56,7 +56,7 @@ class AlbumDetailsVC: BaseVC<AlbumDetailsView> {
 
         viewModel.$filteredImages
             .receive(on: DispatchQueue.main)
-            .sink { albums in
+            .sink { [weak self] albums in
                 self.mainView.collectionView.reloadData()
             }
             .store(in: &cancellables)

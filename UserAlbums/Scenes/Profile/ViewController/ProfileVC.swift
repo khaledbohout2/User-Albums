@@ -55,7 +55,7 @@ class ProfileVC: BaseVC<ProfileView> {
 
         viewModel.$user
             .receive(on: DispatchQueue.main)
-            .sink { user in
+            .sink { [weak self]  user in
                 self.mainView.nameLbl.text = user?.name
                 self.mainView.addressLbl.text = user?.address?.formatAddress()
             }
@@ -63,7 +63,7 @@ class ProfileVC: BaseVC<ProfileView> {
 
         viewModel.$userAlbums
             .receive(on: DispatchQueue.main)
-            .sink { albums in
+            .sink { [weak self]  albums in
                 self.mainView.tableView.reloadData()
             }
             .store(in: &cancellables)
